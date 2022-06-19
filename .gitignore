@@ -1,0 +1,7 @@
+# Directories
+.vscode/
+.vs/
+bin/
+obj/
+Debug/
+*.pdb

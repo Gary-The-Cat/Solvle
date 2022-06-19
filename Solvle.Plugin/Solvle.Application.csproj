@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<OutputType>Library</OutputType>
+	<TargetFramework>net6.0-windows</TargetFramework>
+	<UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <BaseOutputPath>C:\GitHub\code\Solvle\Application</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Impulse.Dashboard\Impulse.Framework\Impulse.SharedFramework\Impulse.SharedFramework.csproj" />
+    <ProjectReference Include="..\..\Impulse.Dashboard\Impulse.Framework\Impulse.Shared\Impulse.Shared.csproj" />
+    <ProjectReference Include="..\Solvle.Domain\Solvle.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
