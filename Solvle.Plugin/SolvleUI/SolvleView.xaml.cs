@@ -29,6 +29,15 @@ public partial class SolvleView : UserControl
     private void Button_Click(object sender, RoutedEventArgs e)
     {
         ViewModel.MakeGuess();
+
+        //clear text boxes when solvle clicked
+        GuessLetterOne.Clear();
+        GuessLetterTwo.Clear();
+        GuessLetterThree.Clear();
+        GuessLetterFour.Clear();    
+        GuessLetterFive.Clear();    
+
+        GuessLetterOne.Focus();
     }
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -41,5 +50,45 @@ public partial class SolvleView : UserControl
     {
         //reset
         ViewModel.Reset();
+
+        GuessLetterOne.Clear();
+        GuessLetterTwo.Clear();
+        GuessLetterThree.Clear();
+        GuessLetterFour.Clear();
+        GuessLetterFive.Clear();
+
+        GuessLetterOne.Focus();
     }
+
+    private void TextBox_KeyUp(object sender, KeyEventArgs e)
+    {
+
+        if (e.Key == Key.Delete || e.Key == Key.Back)
+        {
+            return;
+        }
+        //move on to next text box when char entered
+        if (sender == GuessLetterOne)
+        {
+            GuessLetterTwo.Focus();
+        }
+
+        if (sender == GuessLetterTwo)
+        {
+            GuessLetterThree.Focus();
+        }
+        
+        if (sender == GuessLetterThree)
+        {
+            GuessLetterFour.Focus();
+        }
+
+        if (sender == GuessLetterFour)
+        {
+            GuessLetterFive.Focus();
+        }
+
+    }
+
+
 }

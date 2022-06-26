@@ -8,4 +8,4 @@ const string DashboardLocation =
 
 const string PluginDirectory = @"C:\GitHub\code\Solvle\Application\Debug\net6.0-windows";
 
-Process.Start(DashboardLocation, $"--plugin {PluginDirectory}");
+Process.Start(DashboardLocation, $"--application {PluginDirectory}");

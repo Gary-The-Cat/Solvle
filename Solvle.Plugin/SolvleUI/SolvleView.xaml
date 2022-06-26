@@ -8,8 +8,7 @@
              d:DataContext="{d:DesignInstance local:SolvleViewModel}"
              d:DesignHeight="450"
              d:DesignWidth="800">
-    <Grid 
-        Background="#FF80BBBF">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
@@ -22,13 +21,13 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Solvle Logo-->
         <Image Source="pack://application:,,,/Impulse.Dashboard;Component/Icons/Export/Candy.png"
                Grid.Column="0"
                Grid.Row="0"
                Grid.ColumnSpan="2"/>
-        
+
         <!-- Guess Letters -->
         <Grid
             Grid.Row="1"
@@ -40,7 +39,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -49,10 +48,18 @@
 
             <!-- Guess letter 1 -->
             <TextBox
+                x:Name="GuessLetterOne"
                 Background="{Binding ElementName=GuessLetterOneBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="{Binding GuessLetterOne, Mode=TwoWay}">
+                Text="{Binding GuessLetterOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                PreviewKeyUp="TextBox_KeyUp"
+                Foreground="White"
+                FontSize="100"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="Times New Roman"
+        >
             </TextBox>
 
             <ComboBox
@@ -67,14 +74,21 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            
+
             <!--Guess Letter 2-->
-            
+
             <TextBox
+                x:Name ="GuessLetterTwo"
                 Background="{Binding ElementName=GuessLetterTwoBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="1"
-                Text="{Binding GuessLetterTwo, Mode=TwoWay}">
+                Text="{Binding GuessLetterTwo, Mode=TwoWay}"
+                PreviewKeyUp="TextBox_KeyUp"
+                Foreground="White"
+                FontSize="100"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="Times New Roman">
             </TextBox>
 
             <ComboBox
@@ -87,15 +101,22 @@
                     <DataTemplate>
                         <Rectangle Fill="{Binding}" Width="244" Height="20"/>
                     </DataTemplate>
-                </ComboBox.ItemTemplate>             
+                </ComboBox.ItemTemplate>
             </ComboBox>
-            
+
             <!--Guess Letter 3-->
             <TextBox
+                x:Name="GuessLetterThree"
                 Background="{Binding ElementName=GuessLetterThreeBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="2"
-                Text="{Binding GuessLetterThree, Mode=TwoWay}">
+                Text="{Binding GuessLetterThree, Mode=TwoWay}"
+                PreviewKeyUp="TextBox_KeyUp"
+                Foreground="White"
+                FontSize="100"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="Times New Roman">
             </TextBox>
 
             <ComboBox
@@ -110,13 +131,20 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            
+
             <!--Guess Letter 4-->
             <TextBox
+                x:Name="GuessLetterFour"
                 Background="{Binding ElementName=GuessLetterFourBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="3"
-                Text="{Binding GuessLetterFour, Mode=TwoWay}">
+                Text="{Binding GuessLetterFour, Mode=TwoWay}"
+                PreviewKeyUp="TextBox_KeyUp"
+                Foreground="White"
+                FontSize="100"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="Times New Roman">
             </TextBox>
 
             <ComboBox
@@ -131,13 +159,20 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            
+
             <!--Guess Letter 5-->
             <TextBox
+                x:Name="GuessLetterFive"
                 Background="{Binding ElementName=GuessLetterFiveBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="4"
-                Text="{Binding GuessLetterFive, Mode=TwoWay}">
+                Text="{Binding GuessLetterFive, Mode=TwoWay}"
+                PreviewKeyUp="TextBox_KeyUp"
+                Foreground="White"
+                FontSize="100"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="Times New Roman">
             </TextBox>
 
             <ComboBox
@@ -151,20 +186,21 @@
                         <Rectangle Fill="{Binding}" Width="244" Height="20"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
-                
+
             </ComboBox>
-            
-            
-            
-            
+
+
+
+
         </Grid>
-        
+
         <!-- Potential Words -->
 
         <Grid
            Grid.Row="2"
             Grid.Column="0"
-            Grid.RowSpan="3">
+            Grid.RowSpan="3"
+            Margin="10,10,0,10">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -181,7 +217,7 @@
             Grid.Row="1"
             Grid.Column="0"
             ItemsSource="{Binding PotentialWords}">
-        </ListBox>
+            </ListBox>
 
         </Grid>
 
@@ -190,7 +226,8 @@
         <Grid
             Grid.Row="1"
             Grid.Column="1"
-            Grid.RowSpan="2">
+            Grid.RowSpan="2"
+            Margin="10,0,10,0">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -200,20 +237,20 @@
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="Guesses">                
-            </TextBlock>    
-            
-        <ListBox
+                Text="Guesses">
+            </TextBlock>
+
+            <ListBox
             Grid.Row="1"
             Grid.Column="0"
             ItemsSource="{Binding GuessList}">
-            
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
         </Grid>
 
@@ -223,8 +260,9 @@
             Grid.Row="3"
             Content="Solvle"
             Click="Button_Click"
+            Margin="10"
             ></Button>
-        
+
         <!--Undo and reset buttons -->
         <Grid
             Grid.Row="5"
@@ -238,24 +276,26 @@
             <Button
                 Grid.Column="0"
                 Content="Undo"
-                Click="Button_Click_1">
-                
+                Click="Button_Click_1"
+                Margin="10,0,5,10">
+
             </Button>
 
             <Button
                 Grid.Column="1"
                 Content="Reset"
-                Click="Button_Click_2">
-                
+                Click="Button_Click_2"
+                Margin="5,0,10,10">
+
             </Button>
-            
+
         </Grid>
-      
+
     </Grid>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 </UserControl>
