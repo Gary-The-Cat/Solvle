@@ -14,7 +14,7 @@ public class Letter
             throw new ArgumentException("The character '" + character + "' is not a letter.");
         }
         
-        LetterChar = character;
+        LetterChar = char.ToLower(character);
     }
 
     public static Result<Letter> Create(char character)

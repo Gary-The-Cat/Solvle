@@ -90,12 +90,14 @@ public class SolvleViewModel : DocumentBase
         //Clear all guesses
         solver.ClearAllGuesses();
 
-        //rerun refining list to make it full list of potential words
+        //Clear potential words
         PotentialWords.Clear();
-        PotentialWords.AddRange(solver.GetRefinedList());
+        
 
-        //reprint guessList
+        //Clear guessList
         GuessList.Clear();
+
+
        
         
     }

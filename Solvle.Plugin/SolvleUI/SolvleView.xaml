@@ -70,7 +70,7 @@
                 SelectedItem="{Binding GuessLetterOneColour, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <Rectangle Fill="{Binding}" Width="244" Height="20"/>
+                        <Rectangle Fill="{Binding ., Mode=TwoWay}" Width="244" Height="20"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
@@ -166,7 +166,7 @@
                 Background="{Binding ElementName=GuessLetterFiveBox, Path=SelectedItem}"
                 Grid.Row="0"
                 Grid.Column="4"
-                Text="{Binding GuessLetterFive, Mode=TwoWay}"
+                Text="{Binding GuessLetterFive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 PreviewKeyUp="TextBox_KeyUp"
                 Foreground="White"
                 FontSize="100"
@@ -211,14 +211,47 @@
                 Grid.Row="0"
                 Grid.Column="0"   
                 Text="Potential Words"
-                ></TextBlock>
+                FontFamily="Times New Roman"
+                FontSize="50"/>
 
-            <ListBox
-            Grid.Row="1"
-            Grid.Column="0"
-            ItemsSource="{Binding PotentialWords}">
-            </ListBox>
-
+            <ScrollViewer
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="20"
+                VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding PotentialWords}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button
+                                Background="{DynamicResource BackgroundHighlightBrush}"
+                                BorderBrush="DarkGray"
+                                BorderThickness="1"
+                                Margin="8"
+                                Click="Button_Click_3">
+                                <Grid
+                                    Width="200"
+                                    Height="30">
+                                    <TextBlock 
+                                        Grid.Row="0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding}"
+                                        FontFamily="Times New Roman"
+                                        FontSize="18"
+                                       />
+                                </Grid>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+            
         </Grid>
 
         <!-- Guesses -->
@@ -237,7 +270,9 @@
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="Guesses">
+                Text="Guesses"
+                FontFamily="Times New Roman"
+                FontSize="50">
             </TextBlock>
 
             <ListBox
@@ -247,7 +282,9 @@
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding}"
+                         FontFamily="Times New Roman"
+                         FontSize="30"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -259,6 +296,10 @@
             Grid.Column="1"
             Grid.Row="3"
             Content="Solvle"
+            FontFamily="Times New Roman"
+            FontSize="50"
+            Foreground="White"
+            Background="#75B36E"
             Click="Button_Click"
             Margin="10"
             ></Button>
@@ -276,6 +317,8 @@
             <Button
                 Grid.Column="0"
                 Content="Undo"
+                FontFamily="Times New Roman"
+                FontSize="30"
                 Click="Button_Click_1"
                 Margin="10,0,5,10">
 
@@ -284,6 +327,8 @@
             <Button
                 Grid.Column="1"
                 Content="Reset"
+                FontFamily="Times New Roman"
+                FontSize="30"
                 Click="Button_Click_2"
                 Margin="5,0,10,10">
 
