@@ -1,30 +1,27 @@
-﻿namespace Solvle.Application;
-
-using Impulse.Shared.Application;
+﻿using Impulse.SharedFramework.Application;
+using Impulse.SharedFramework.Plugin;
 using Impulse.SharedFramework.Ribbon;
 using Impulse.SharedFramework.Services;
 using Solvle.Application.SolvleUI;
-using Ninject;
+
+namespace Solvle.Application;
 
 public class SolvleApplication : IApplication
 {
-    private IKernel kernel;
-
-    public SolvleApplication(IKernel kernel)
-    {
-        this.kernel = kernel;
-    }
-
     public string DisplayName => "Solvle";
 
     public Uri Icon => new Uri(
         "pack://application:,,,/Impulse.Dashboard;component/Icons/Export/Bat.png",
         UriKind.Absolute);
 
+    public IDashboardProvider Dashboard { get; set; }
+
     public async Task Initialize()
     {
-        var ribbonService = this.kernel.Get<IRibbonService>();
-        
+        this.Dashboard.RegisterRequiredService<IRibbonService>();
+        this.Dashboard.RegisterRequiredService<IDocumentService>();
+        this.Dashboard.RegisterRequiredService<IDialogService>();
+
         var taylorDemo = new RibbonButtonViewModel
         {
             Title = "Solvle",
@@ -35,15 +32,13 @@ public class SolvleApplication : IApplication
             Callback = OpenSolvleDemo,
         };
 
-        ribbonService.AddButton(taylorDemo);
+        this.Dashboard.RibbonService.AddButton(taylorDemo);
     }
 
     private void OpenSolvleDemo()
     {
-        var sfmlDemo = kernel.Get<SolvleViewModel>();
-        var documentService = kernel.Get<IDocumentService>();
-
-        documentService.OpenDocument(sfmlDemo);
+        var sfmlDemo = new SolvleViewModel(this.Dashboard.DialogService);
+        this.Dashboard.DocumentService.OpenDocument(sfmlDemo);
     }
 
     public async Task LaunchApplication()

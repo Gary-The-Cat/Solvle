@@ -1,5 +1,4 @@
-﻿using DynamicData;
-using Impulse.SharedFramework.Services;
+﻿using Impulse.SharedFramework.Services;
 using Impulse.SharedFramework.Services.Layout;
 using Solvle.Domain;
 using System.Collections.ObjectModel;
@@ -75,7 +74,7 @@ public class SolvleViewModel : DocumentBase
         //rerun refining the list with the shorter guess list
         //reprint refined list
         PotentialWords.Clear();
-        PotentialWords.AddRange(solver.GetRefinedList());
+        solver.GetRefinedList().ForEach(word => PotentialWords.Add(word));
 
 
         //reprint guessList
@@ -164,7 +163,7 @@ public class SolvleViewModel : DocumentBase
 
         // Update our UI to show the list of refined words.
         PotentialWords.Clear();
-        PotentialWords.AddRange(potentialWords);
+        potentialWords.ForEach(word => PotentialWords.Add(word));
 
         //update UI to show new guess in list
 
