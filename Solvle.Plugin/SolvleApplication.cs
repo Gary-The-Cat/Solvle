@@ -18,10 +18,6 @@ public class SolvleApplication : IApplication
 
     public async Task Initialize()
     {
-        this.Dashboard.RegisterRequiredService<IRibbonService>();
-        this.Dashboard.RegisterRequiredService<IDocumentService>();
-        this.Dashboard.RegisterRequiredService<IDialogService>();
-
         var taylorDemo = new RibbonButtonViewModel
         {
             Title = "Solvle",
