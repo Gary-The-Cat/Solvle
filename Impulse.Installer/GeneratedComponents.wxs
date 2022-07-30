@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Component Id="cmpA35C8E86BE91776EDD18146D9C778949" Guid="{57C9F0BC-8708-4748-81F4-A3ED654C0CBA}">
+                <File Id="fil49D874DE97A91EB6ECE49C6738E116AC" KeyPath="yes" Source="$(var.BasePath)\Caliburn.Micro.Core.dll" />
+            </Component>
+            <Component Id="cmp5B5432019572FB623C99917367B10846" Guid="{EADB1C1B-43DC-45E1-9540-D9DEEA29B1DF}">
+                <File Id="filAA6223EF2446D9E51D762D23DD9E6BAD" KeyPath="yes" Source="$(var.BasePath)\CSharpFunctionalExtensions.dll" />
+            </Component>
+            <Component Id="cmpD580DE32C262CC76A492CAE44A03174C" Guid="{DF22545A-6676-4F64-A212-3022BA968E3F}">
+                <File Id="filE13DC84601230967A836B929002D92D0" KeyPath="yes" Source="$(var.BasePath)\Impulse.Shared.dll" />
+            </Component>
+            <Component Id="cmp19F5ADFFDB2032D6D0C1A614486E67B9" Guid="{83903C6B-8433-4ECB-B339-16E895BD6AA7}">
+                <File Id="fil2BBFBA145E7D9E61307580FB18C02F03" KeyPath="yes" Source="$(var.BasePath)\Impulse.Shared.Nuget.dll" />
+            </Component>
+            <Component Id="cmp2F789A848CCEFBC41DFDC3ED8F31AFF1" Guid="{2A832D3B-005F-4492-86EC-1A04748BE398}">
+                <File Id="fil9DE022DC29C3850D2DA503C973A3222A" KeyPath="yes" Source="$(var.BasePath)\Impulse.Shared.UI.dll" />
+            </Component>
+            <Component Id="cmp05F269E88624B84C16F42BF6C2E230B6" Guid="{4299CD91-147D-4825-A3B3-AEDD353B5580}">
+                <File Id="filC662A46CCC64C8DF74C9122D77840DB3" KeyPath="yes" Source="$(var.BasePath)\Impulse.SharedFramework.dll" />
+            </Component>
+            <Component Id="cmp55D15D832C8EA4D38A9ED5865C55350D" Guid="{3A08E660-7883-4D71-8B08-4D0E4125C873}">
+                <File Id="filDC2AD106ACE9F77DFAD85F17708E9111" KeyPath="yes" Source="$(var.BasePath)\PropertyChanged.dll" />
+            </Component>
+            <Component Id="cmp6A1A0D2E3BE9FAD00BB389EDFD578C83" Guid="{53AC6353-0552-48FB-878F-63A2CF7DB305}">
+                <File Id="fil585D8BD74389B999262A4D6139945B78" KeyPath="yes" Source="$(var.BasePath)\PropertyChanging.dll" />
+            </Component>
+            <Component Id="cmp28CD8522660CB44152091DE15F3CB5E0" Guid="{C113288C-C190-4B5B-8518-14D484D27B1C}">
+                <File Id="fil6279E68460451ABA5A8AECBAEDD0B4A6" KeyPath="yes" Source="$(var.BasePath)\Solvle.Application.deps.json" />
+            </Component>
+            <Component Id="cmp3F7435E3513F60AE62F3369DB11C856F" Guid="{BB872A3B-2D7D-45EE-8BE8-6329CDCB11E0}">
+                <File Id="filD7704B923EA65C78C34041D4C7E40894" KeyPath="yes" Source="$(var.BasePath)\Solvle.Application.dll" />
+            </Component>
+            <Component Id="cmp4E5A33DE0F4CFDB08B12F61DC5CA9DA6" Guid="{8D8C65D5-EB8C-4184-8666-3007670825AA}">
+                <File Id="fil974B24FDE8E97B1069AEE3328BBA62EF" KeyPath="yes" Source="$(var.BasePath)\Solvle.Application.pdb" />
+            </Component>
+            <Component Id="cmp2EAA63DB4F0186B9F0358532B9CD99DB" Guid="{F3B47D4D-00A9-40E1-B057-BE27289BB1F3}">
+                <File Id="fil1C6D459930D2463C21E509B0E0D033DE" KeyPath="yes" Source="$(var.BasePath)\Solvle.Domain.dll" />
+            </Component>
+            <Component Id="cmpB3075D34E5057DEEA53BB81FBDB49128" Guid="{F80C6ADB-1636-46A4-AD37-32E61258AD7F}">
+                <File Id="fil154A135280A8B59AE98E29FD677203E2" KeyPath="yes" Source="$(var.BasePath)\Solvle.Domain.pdb" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="PublishedComponents">
+            <ComponentRef Id="cmpA35C8E86BE91776EDD18146D9C778949" />
+            <ComponentRef Id="cmp5B5432019572FB623C99917367B10846" />
+            <ComponentRef Id="cmpD580DE32C262CC76A492CAE44A03174C" />
+            <ComponentRef Id="cmp19F5ADFFDB2032D6D0C1A614486E67B9" />
+            <ComponentRef Id="cmp2F789A848CCEFBC41DFDC3ED8F31AFF1" />
+            <ComponentRef Id="cmp05F269E88624B84C16F42BF6C2E230B6" />
+            <ComponentRef Id="cmp55D15D832C8EA4D38A9ED5865C55350D" />
+            <ComponentRef Id="cmp6A1A0D2E3BE9FAD00BB389EDFD578C83" />
+            <ComponentRef Id="cmp28CD8522660CB44152091DE15F3CB5E0" />
+            <ComponentRef Id="cmp3F7435E3513F60AE62F3369DB11C856F" />
+            <ComponentRef Id="cmp4E5A33DE0F4CFDB08B12F61DC5CA9DA6" />
+            <ComponentRef Id="cmp2EAA63DB4F0186B9F0358532B9CD99DB" />
+            <ComponentRef Id="cmpB3075D34E5057DEEA53BB81FBDB49128" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

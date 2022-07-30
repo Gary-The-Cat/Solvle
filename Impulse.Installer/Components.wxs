@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+		<ComponentGroup Id="ProductComponents">
+			<!-- Shortcut -->
+			<ComponentRef Id="ApplicationRegistryEntry" />
+		</ComponentGroup>
+
+		<DirectoryRef Id="INSTALLFOLDER" FileSource="$(var.Solvle.Application.ProjectDir)\bin\Debug\net6.0-windows\win-x64\publish\">
+			<Component Id="ApplicationRegistryEntry" Guid="{446A6BEA-0375-47EE-B5AC-2DF77C427712}">
+				<!--<Shortcut
+					Id="ApplicationRegistryEntry"
+					Name="!(loc.ProductName)"
+					Target="[INSTALLFOLDER]Impulse.Dashboard.exe"
+					Directory="InstallProgramMenuFolder"
+					WorkingDirectory="INSTALLFOLDER"
+					Icon="icon.ico"/>-->
+
+				<RegistryValue
+					Id="RegShortcutKey"
+					Root="HKCU"
+					Type="string"
+					Value="[INSTALLFOLDER]"
+					Key="SOFTWARE\!(loc.CompanyName)\!(loc.ApplicationsFolder)"
+					KeyPath="yes"
+					Name="!(loc.ProductName)"/>
+				
+				
+
+				 <!--Remove start menu shortcut-->
+				<RemoveFolder Id="RemoveStartMenu" Directory="InstallProgramMenuFolder" On="uninstall"/>
+			</Component>
+		</DirectoryRef>
+		
+	</Fragment>
+</Wix>
