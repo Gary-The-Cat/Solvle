@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solvle.Tests", "Solvle.Tests\Solvle.Tests.csproj", "{384E1675-D0DF-426D-9B35-370EF5B7180F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Runner", "Dashboard.Runner\Dashboard.Runner.csproj", "{B2141A68-585F-441C-9D2F-A042C9E4150D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2405EB63-F55D-48DD-B2EF-84534EBD66F3} = {2405EB63-F55D-48DD-B2EF-84534EBD66F3}
+	EndProjectSection
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Impulse.Installer", "Impulse.Installer\Impulse.Installer.wixproj", "{C61655B3-7A56-483D-8B73-432C55312E96}"
 EndProject
@@ -46,7 +49,6 @@ Global
 		{B2141A68-585F-441C-9D2F-A042C9E4150D}.Release|x64.ActiveCfg = Release|Any CPU
 		{B2141A68-585F-441C-9D2F-A042C9E4150D}.Release|x64.Build.0 = Release|Any CPU
 		{C61655B3-7A56-483D-8B73-432C55312E96}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{C61655B3-7A56-483D-8B73-432C55312E96}.Debug|Any CPU.Build.0 = Debug|x64
 		{C61655B3-7A56-483D-8B73-432C55312E96}.Debug|x64.ActiveCfg = Debug|x64
 		{C61655B3-7A56-483D-8B73-432C55312E96}.Debug|x64.Build.0 = Debug|x64
 		{C61655B3-7A56-483D-8B73-432C55312E96}.Release|Any CPU.ActiveCfg = Release|x64

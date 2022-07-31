@@ -5,3 +5,6 @@ bin/
 obj/
 Debug/
 *.pdb
+
+Artifacts/
+/Impulse.Installer/GeneratedComponents.wxs

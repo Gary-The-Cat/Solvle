@@ -56,6 +56,12 @@ public class SolvleViewModel : DocumentBase
     public SolidColorBrush GuessLetterFourColour { get; set; }
     public SolidColorBrush GuessLetterFiveColour { get; set; }
 
+    public SolidColorBrush Green => this.Colours.First();
+
+    public SolidColorBrush Yellow => this.Colours.Skip(1).First();
+
+    public SolidColorBrush Grey => this.Colours.Last();
+
     public string GuessLetterOne { get; set; }
     public string GuessLetterTwo { get; set; }
     public string GuessLetterThree { get; set; }
@@ -168,5 +174,34 @@ public class SolvleViewModel : DocumentBase
         //update UI to show new guess in list
 
         GuessList.Add(guess.GetString());
+
+        //set any orange letters back to grey, keep green letters as is
+        if (GuessLetterOneColour == Yellow)
+        {
+            GuessLetterOneColour = Grey;
+            NotifyOfPropertyChange(nameof(GuessLetterOneColour));
+        }
+
+        if (GuessLetterTwoColour == Yellow)
+        {
+            GuessLetterTwoColour = Grey;
+            NotifyOfPropertyChange(nameof(GuessLetterTwoColour));
+        }
+        if (GuessLetterThreeColour == Yellow)
+        {
+            GuessLetterThreeColour = Grey;
+            NotifyOfPropertyChange(nameof(GuessLetterThreeColour));
+        }
+        if (GuessLetterFourColour == Yellow)
+        {
+            GuessLetterFourColour = Grey;
+            NotifyOfPropertyChange(nameof(GuessLetterFourColour));
+        }
+        if (GuessLetterFiveColour == Yellow)
+        {
+            GuessLetterFiveColour = Grey;
+            NotifyOfPropertyChange(nameof(GuessLetterFiveColour));
+        }
+
     }
 }

@@ -35,7 +35,9 @@ public partial class SolvleView : UserControl
         GuessLetterTwo.Clear();
         GuessLetterThree.Clear();
         GuessLetterFour.Clear();    
-        GuessLetterFive.Clear();    
+        GuessLetterFive.Clear();
+
+
 
         GuessLetterOne.Focus();
     }

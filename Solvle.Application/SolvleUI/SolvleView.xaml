@@ -23,7 +23,15 @@
         </Grid.RowDefinitions>
 
         <!-- Solvle Logo-->
-        <Image Source="pack://application:,,,/Impulse.Dashboard;Component/Icons/Export/Candy.png"
+        <Border
+            Background="#75B36E"
+            Margin="0,0,0,8"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            BorderBrush="DarkGray"
+            BorderThickness="0,0,0,1"/>
+        <Image Source="C:\GitHub\code\Solvle\SolvleLogo2.png"
                Grid.Column="0"
                Grid.Row="0"
                Grid.ColumnSpan="2"/>
@@ -208,50 +216,56 @@
             </Grid.RowDefinitions>
 
             <TextBlock
+                Margin="8,8,8,16"
+                HorizontalAlignment="Center"
                 Grid.Row="0"
                 Grid.Column="0"   
                 Text="Potential Words"
                 FontFamily="Times New Roman"
-                FontSize="50"/>
+                FontSize="30"
+                Foreground="#444444"/>
 
-            <ScrollViewer
+            <Border
                 Grid.Row="1"
                 Grid.Column="0"
-                Margin="20"
-                VerticalScrollBarVisibility="Auto"
-                HorizontalScrollBarVisibility="Disabled">
-                <ItemsControl ItemsSource="{Binding PotentialWords}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Button
-                                Background="{DynamicResource BackgroundHighlightBrush}"
-                                BorderBrush="DarkGray"
-                                BorderThickness="1"
-                                Margin="8"
-                                Click="Button_Click_3">
-                                <Grid
-                                    Width="200"
-                                    Height="30">
-                                    <TextBlock 
-                                        Grid.Row="0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Text="{Binding}"
-                                        FontFamily="Times New Roman"
-                                        FontSize="18"
-                                       />
-                                </Grid>
-                            </Button>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel IsItemsHost="True" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </ScrollViewer>
-            
+                BorderBrush="DarkGray"
+                BorderThickness="1">
+                <ScrollViewer
+                    Margin="0"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalScrollBarVisibility="Disabled">
+                    <ItemsControl ItemsSource="{Binding PotentialWords}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Background="{DynamicResource BackgroundHighlightBrush}"
+                                    BorderBrush="DarkGray"
+                                    BorderThickness="1"
+                                    Margin="8"
+                                    Click="Button_Click_3">
+                                    <Grid
+                                        Width="200"
+                                        Height="30">
+                                        <TextBlock 
+                                            Grid.Row="0"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding}"
+                                            FontFamily="Times New Roman"
+                                            FontSize="18"
+                                           />
+                                    </Grid>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Border>
         </Grid>
 
         <!-- Guesses -->
@@ -270,21 +284,27 @@
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
+                HorizontalAlignment="Center"
+                Margin="10"
                 Text="Guesses"
                 FontFamily="Times New Roman"
-                FontSize="50">
+                FontSize="30"
+                Foreground="#444444">
             </TextBlock>
 
             <ListBox
-            Grid.Row="1"
-            Grid.Column="0"
-            ItemsSource="{Binding GuessList}">
+                Grid.Row="1"
+                Grid.Column="0"
+                ItemsSource="{Binding GuessList}"
+                Background="#F3F3F3">
 
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}"
-                         FontFamily="Times New Roman"
-                         FontSize="30"/>
+                        <TextBlock 
+                            Text="{Binding}"
+                            FontFamily="Times New Roman"
+                            FontSize="18"
+                            Foreground="#444444"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -320,7 +340,8 @@
                 FontFamily="Times New Roman"
                 FontSize="30"
                 Click="Button_Click_1"
-                Margin="10,0,5,10">
+                Margin="10,0,5,10"
+                Foreground="#444444">
 
             </Button>
 
@@ -330,7 +351,8 @@
                 FontFamily="Times New Roman"
                 FontSize="30"
                 Click="Button_Click_2"
-                Margin="5,0,10,10">
+                Margin="5,0,10,10"
+                Foreground="#444444">
 
             </Button>
 
